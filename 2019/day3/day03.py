@@ -31,6 +31,8 @@ if __name__ == '__main__':
     a,b = get_data()
     path_a = elabora_cavo(a)
     path_b = elabora_cavo(b)
+    print(path_a)
+    print(path_b)
     in_common= list(set(path_a).intersection(path_b))
     output=[]
     for a,b in in_common:
