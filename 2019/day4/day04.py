@@ -31,11 +31,11 @@ def generate_array_range(start_in, end_in):
     ended = int(end_in)
     array = []
     for e in range(started, ended + 1):
-        array.append(f'{e:06}')
+        array.append(f"{e:06}")
     return array
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     start_in = "146810"
     end_in = "612564"
     array = generate_array_range(start_in, end_in)
@@ -49,6 +49,7 @@ if __name__ == '__main__':
         if check_checker_2(e):
             counter += 1
     print(counter)
+
 
 class Day03TestCase(unittest.TestCase):
     def test_check_checker(self):

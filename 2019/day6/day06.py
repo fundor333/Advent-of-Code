@@ -24,24 +24,23 @@ def cleaner_counter(k, system, orbits):
         del system[k]
         return
 
-def find_path(parent_path, src) :
+
+def find_path(parent_path, src):
     path = []
     planet_iterator = src
     while True:
         value = parent_path[planet_iterator]
         path.append(value)
-        if value == 'COM':
+        if value == "COM":
             return path[::-1]
         planet_iterator = value
 
 
 def generate_system_orbits(lines):
     system = {}
-    orbits = {
-        'COM': 0
-    }
+    orbits = {"COM": 0}
     for line in lines:
-        planet, satellite = line.split(')')
+        planet, satellite = line.split(")")
         if planet not in system:
             system[planet] = [satellite]
         else:
@@ -52,7 +51,7 @@ def generate_system_orbits(lines):
 def generate_parents_paths(lines):
     parent_paths = {}
     for line in lines:
-        planet, satellite = line.split(')')
+        planet, satellite = line.split(")")
         parent_paths[satellite] = planet
     return parent_paths
 
@@ -68,8 +67,10 @@ if __name__ == "__main__":
     result = sum(orbits.values())
     print(result)
 
-    parents_paths=  generate_parents_paths(lines)
+    parents_paths = generate_parents_paths(lines)
     path_you = find_path(parents_paths, "YOU")
     path_SAN = find_path(parents_paths, "SAN")
-    result = len(set(path_you).difference(path_SAN))+len(set(path_SAN).difference(path_you)) # https://www.geeksforgeeks.org/python-set-difference/
+    result = len(set(path_you).difference(path_SAN)) + len(
+        set(path_SAN).difference(path_you)
+    )  # https://www.geeksforgeeks.org/python-set-difference/
     print(result)

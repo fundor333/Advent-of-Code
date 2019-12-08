@@ -1,5 +1,6 @@
 import unittest
 
+
 def get_data():
     with open("input/input2.txt", "r") as f:
         data = f.read()
@@ -11,11 +12,17 @@ def part1(data, noun=12, verb=2):
     program_text = data[:]
     program_text[1] = noun
     program_text[2] = verb
-    while ptr<=len(program_text):
+    while ptr <= len(program_text):
         if program_text[ptr] == 1:
-            program_text[program_text[ptr + 3]] = program_text[program_text[ptr + 1]] + program_text[program_text[ptr + 2]]
+            program_text[program_text[ptr + 3]] = (
+                program_text[program_text[ptr + 1]]
+                + program_text[program_text[ptr + 2]]
+            )
         elif program_text[ptr] == 2:
-            program_text[program_text[ptr + 3]] = program_text[program_text[ptr + 1]] * program_text[program_text[ptr + 2]]
+            program_text[program_text[ptr + 3]] = (
+                program_text[program_text[ptr + 1]]
+                * program_text[program_text[ptr + 2]]
+            )
         elif program_text[ptr] == 99:
             return program_text[0]
         ptr += 4
@@ -33,4 +40,3 @@ if __name__ == "__main__":
     data = get_data()
     print(part1(data))
     print(part2(data))
-

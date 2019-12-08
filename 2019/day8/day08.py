@@ -1,4 +1,3 @@
-
 import math
 import collections
 
@@ -6,8 +5,8 @@ WIDTH = 25
 HEIGHT = 6
 PIXER_PER_LAYER = WIDTH * HEIGHT
 
-def break_layers():
 
+def break_layers():
 
     with open("input/input.txt") as file:
         elf_data = []
@@ -21,13 +20,13 @@ def break_layers():
         del elf_data[:PIXER_PER_LAYER]
     return layers
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
 
     layers = break_layers()
 
-    fewest_zeros = min(layers, key=lambda layer: layer.count('0'))
-    print(fewest_zeros.count('1') * fewest_zeros.count('2'))
-
+    fewest_zeros = min(layers, key=lambda layer: layer.count("0"))
+    print(fewest_zeros.count("1") * fewest_zeros.count("2"))
 
     visible = []
     for i in range(PIXER_PER_LAYER):
@@ -39,7 +38,7 @@ if __name__ == '__main__':
     image = ""
     x = 0
     for y in range(HEIGHT):
-        for pixel in (i for i in visible[x:x + WIDTH]):
+        for pixel in (i for i in visible[x : x + WIDTH]):
             if pixel == 0:
                 image += " "
             elif pixel == 1:

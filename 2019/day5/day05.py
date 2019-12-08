@@ -1,5 +1,6 @@
 import unittest
 
+
 def read_file(name):
     with open(f"input/{name}") as f:
         content = f.readlines()
@@ -118,6 +119,6 @@ def esercizio2():
             i += 4
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     esercizio1()
     esercizio2()
