@@ -4,9 +4,9 @@ Based on the navigational maps, you're going to need to send more power to your 
 
 There are five amplifiers connected in series; each one receives an input signal and produces an output signal. They are connected such that the first amplifier's output leads to the second amplifier's input, the second amplifier's output leads to the third amplifier's input, and so on. The first amplifier's input value is 0, and the last amplifier's output leads to your ship's thrusters.
 
-        O-------O  O-------O  O-------O  O-------O  O-------O
-    0 ->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-> (to thrusters)
-        O-------O  O-------O  O-------O  O-------O  O-------O
+    O-------O  O-------O  O-------O  O-------O  O-------O
+0 ->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-> (to thrusters)
+    O-------O  O-------O  O-------O  O-------O  O-------O
 
 The Elves have sent you some Amplifier Controller Software (your puzzle input), a program that should run on your existing Intcode computer. Each amplifier will need to run a copy of the program.
 
@@ -49,14 +49,14 @@ Your puzzle answer was 22012.
 
 It's no good - in this configuration, the amplifiers can't generate a large enough output signal to produce the thrust you'll need. The Elves quickly talk you through rewiring the amplifiers into a feedback loop:
 
-          O-------O  O-------O  O-------O  O-------O  O-------O
-    0 -+->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-.
-       |  O-------O  O-------O  O-------O  O-------O  O-------O |
-       |                                                        |
-       '--------------------------------------------------------+
-                                                                |
-                                                                v
-                                                         (to thrusters)
+      O-------O  O-------O  O-------O  O-------O  O-------O
+0 -+->| Amp A |->| Amp B |->| Amp C |->| Amp D |->| Amp E |-.
+   |  O-------O  O-------O  O-------O  O-------O  O-------O |
+   |                                                        |
+   '--------------------------------------------------------+
+                                                            |
+                                                            v
+                                                     (to thrusters)
 
 Most of the amplifiers are connected as they were before; amplifier A's output is connected to amplifier B's input, and so on. However, the output from amplifier E is now connected into amplifier A's input. This creates the feedback loop: the signal will be sent through the amplifiers many times.
 
